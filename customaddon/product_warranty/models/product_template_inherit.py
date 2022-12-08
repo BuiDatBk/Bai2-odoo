@@ -7,8 +7,8 @@ class ProductTemplateInherit(models.Model):
     _inherit = "product.template"
 
     product_warranty = fields.Text(string="Product Warranty", compute="warranty_code")
-    date_from = fields.Datetime(string="From Date")
-    date_to = fields.Datetime(string="To Date")
+    date_from = fields.Datetime(string="From Date", groups="product_warranty.group_product_warranty")
+    date_to = fields.Datetime(string="To Date", groups="product_warranty.group_product_warranty")
 
     # @api.depends('value')
     def _is_warranty(self):
