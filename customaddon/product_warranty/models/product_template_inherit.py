@@ -15,6 +15,14 @@ class ProductTemplateInherit(models.Model):
                                                  compute="discount_estimated"
                                                  )
     time_interval = fields.Text(string="Time Interval", compute="cal_day")
+    has_valid_code = fields.Boolean(string="Valid Code", compute="compute_valid_code", store=True)
+
+    def compute_valid_code(self):
+        for record in self:
+            if record.is_warranty():
+                record.has_valid_code = True
+            else:
+                record.has_valid_code = False
 
     @api.depends("date_from", "date_to")
     def cal_day(self):

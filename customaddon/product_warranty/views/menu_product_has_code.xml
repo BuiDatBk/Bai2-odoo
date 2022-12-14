@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_have_discount_code" model="ir.actions.act_window">
+            <field name="name">Valid Code</field>
+<!--            <field name="type">ir.actions.act_window</field>-->
+            <field name="res_model">product.product</field>
+            <field name="view_mode">tree</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('product.product_product_tree_view')})]"
+            />
+            <field name="domain">[('has_valid_code','=',True)]</field>
+            <!--            <field name="search_view_id" ref="base.view_res_partner_filter"/>-->
+        </record>
+
+        <menuitem id="menu_have_discount_code"
+                  name="Valid Code"
+                  action="product_warranty.action_have_discount_code"
+                  parent="sale.product_menu_catalog"
+        />
+
+    </data>
+</odoo>
