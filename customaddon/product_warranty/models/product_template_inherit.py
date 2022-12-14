@@ -74,3 +74,19 @@ class ProductTemplateInherit(models.Model):
                 record.product_discount_estimated = 0
             else:
                 record.product_discount_estimated = record.standard_price * 0.1
+
+    def add_date_warranty(self):
+        """Called by the action in xml, return the wizard form"""
+        ids = [x.id for x in self]
+        view_id = self.env.ref('product_warranty.update_date_warranty_form_view').id
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Update Date Warranty',
+            'view_mode': 'form',
+            'view_id': view_id,
+            'res_model': 'update.date.warranty.wizard',
+            'target': 'new',
+            'context': {
+                'default_product_ids': [(6, 0, ids)],
+            }
+        }

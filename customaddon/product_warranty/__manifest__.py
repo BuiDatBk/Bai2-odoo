@@ -24,11 +24,12 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'views/product_template_inherit.xml',
         'security/groups.xml',
         'views/sale_order_line_inherit.xml',
         'views/menu_product_has_code.xml',
+        'wizard/update_date_warranty_wizard.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

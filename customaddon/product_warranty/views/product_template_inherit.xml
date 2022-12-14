@@ -53,6 +53,14 @@
             </field>
         </record>
 
-    </data>
+        <record id="mass_update_date_warranty" model="ir.actions.server">
+            <field name="name">Update Date Warranty</field>
+            <field name="model_id" ref="product.model_product_product"/>
+            <field name="binding_model_id" ref="product.model_product_product"/>
+            <field name="binding_view_types">list</field>
+            <field name="state">code</field>
+            <field name="code">action = records.add_date_warranty()</field>
+        </record>
 
+    </data>
 </odoo>
