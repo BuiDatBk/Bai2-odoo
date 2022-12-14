@@ -35,9 +35,6 @@
                     <field name="product_warranty"/>
                 </field>
                 <field name="barcode" position="after">
-                    <field name="product_discount_estimated"/>
-                </field>
-                <field name="product_discount_estimated" position="after">
                     <field name="time_interval"/>
                 </field>
             </field>
