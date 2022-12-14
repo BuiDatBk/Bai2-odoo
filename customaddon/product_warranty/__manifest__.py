@@ -20,13 +20,14 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'product'],
+    'depends': ['base', 'product', 'sale'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
         'views/product_template_inherit.xml',
         'security/groups.xml',
+        'views/sale_order_line_inherit.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
