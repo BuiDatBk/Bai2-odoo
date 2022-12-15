@@ -13,19 +13,22 @@ class SaleOrderInherit(models.Model):
             for line in order_line_list:
                 record.discount_total += line.discount_warranty
 
-    # @api.depends('order_line.price_total')
-    # def _amount_all(self):
-    #     """
-    #     Compute the total amounts of the SO.
-    #     """
-    #     for order in self:
-    #         amount_untaxed = amount_tax = 0.0
-    #         for line in order.order_line:
-    #             amount_untaxed += line.price_subtotal
-    #             amount_tax += line.price_tax
-    #         order.update({
-    #             'amount_untaxed': amount_untaxed,
-    #             'amount_tax': amount_tax,
-    #             'amount_total': amount_untaxed + amount_tax - order.discount_total,
-    #         })
+    @api.depends('order_line.price_total')
+    def _amount_all(self):
+        """
+        Compute the total amounts of the SO.
+        """
+        for order in self:
+            amount_untaxed = amount_tax = discount_no_warranty = 0.0
+            for line in order.order_line:
+                amount_untaxed += line.price_subtotal
+                amount_tax += line.price_tax
+
+            discount_no_warranty = order.discount_total
+
+            order.update({
+                'amount_untaxed': amount_untaxed,
+                'amount_tax': amount_tax,
+                'amount_total': amount_untaxed + amount_tax - discount_no_warranty,
+            })
 
