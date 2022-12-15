@@ -51,7 +51,7 @@ class ProductTemplateInherit(models.Model):
     # @api.depends('value')
     def is_warranty(self):
         for record in self:
-            if record.date_from and record.date_to and record.date_to > record.date_from:
+            if record.date_from and record.date_to and record.date_to > record.date_from and record.date_to > record.date_to.now():
                 return True
             else:
                 return False
