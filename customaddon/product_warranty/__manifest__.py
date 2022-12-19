@@ -28,6 +28,7 @@
         'views/product_template_inherit.xml',
         'security/groups.xml',
         'views/sale_order_line_inherit.xml',
+        'wizard/update_date_warranty_wizard.xml',
         'views/website_sale_delivery_inherit.xml',
     ],
     # only loaded in demonstration mode

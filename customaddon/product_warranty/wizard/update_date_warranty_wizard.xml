@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="update_date_warranty_form_view" model="ir.ui.view">
+            <field name="name">Update Date Warranty</field>
+            <field name="model">update.date.warranty.wizard</field>
+            <field name="arch" type="xml">
+                <form string="ModelTitle">
+                    <group>
+                        <field name="mess_date_from"/>
+                        <field name="mess_date_to"/>
+                    </group>
+
+                    <footer>
+                        <button string='Update'
+                                type='object'
+                                name='add_date_warranty'
+                                class='btn-primary'/>
+                        <button string='Cancel'
+                                class='btn-default'
+                                special='cancel'/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>
